@@ -7,7 +7,7 @@ Obtaining human-readable, bot-tweetable representations of arXiv metadata from t
   - TODO: maybe work with [pyArXiv](https://github.com/devArtoria/pyArXiv)
 - to execute the test suite run `python -m unittest`
 
-## Simple example
+## Simple examples
 
 - Non-interactive use (`tw` format):
 
@@ -17,6 +17,12 @@ Obtaining human-readable, bot-tweetable representations of arXiv metadata from t
 
   copies `Papyan et al. (⑰) Convolutional Dictionary Learning via Local Processing (arX⠶1705.03239v1［cs.CV］) http://arxiv.org/abs/1705.03239v1` to the clipboard
 
+  - bash interactive [reusable one-liner] version:
+
+    ```sh
+    read arx_id; python -c "from arx_inf.inf import QueryID; p = QueryID('$arx_id'); print(p)" | xclip -sel clip
+    ```
+
 - Non-interactive use (`log` format):
   
   ```sh
@@ -24,3 +30,9 @@ Obtaining human-readable, bot-tweetable representations of arXiv metadata from t
   ```
 
   copies `- [ ] kant18 ⠶ [Recent Advances in Neural Program Synthesis](http://arxiv.org/abs/1802.02353v1)` to the clipboard
+
+  - bash interactive [reusable one-liner] version:
+
+    ```sh
+    read arx_id; python -c "from arx_inf.inf import QueryID; p = QueryID('$arx_id', to='log'); print(p)" | xclip -sel clip
+    ```
