@@ -20,12 +20,35 @@ class YearTestSuite(unittest.TestCase):
         '㊲', '㊳', '㊴', '㊵', '㊶', '㊷', '㊸', '㊹', '㊺', '㊻', '㊼',
         '㊽', '㊾', '㊿'] == [YearConvert(x) for x in range(2010,2051)]
 
+    def test_default_to_tw(self):
+        """
+        Ensure the default ``to`` parameter remains set as ``tw``.
+        """
+        assert YearConvert(2018) == YearConvert(2018, to="tw")
+
     def test_integers(self):
         """
         Years pre-2009 don't get converted other than into strings.
         """
         assert [YearConvert(x) for x in range(1900,2010)] == \
                        [str(x) for x in range(1900,2010)]
+
+    def test_20c_year_abbrev(self):
+        """
+        Years for filenames don't get converted, the last two digits
+        are used (may change this for 20C ambiguity in future? TBC).
+        """
+        assert [YearConvert(x, to="log") for x in range(1960,2000)] == \
+               [str(x) for x in range(60,100)]
+
+    def test_21c_year_abbrev(self):
+        """
+        Years for filenames in the 21st century, as above but
+        handling 00 integers etc.
+        """
+        assert [YearConvert(x, to="log") for x in range(2000,2050)] == \
+               ['00'] + [f'0{x}' for x in range(1,10)] + \
+               [str(x) for x in range(10,50)]
 
 if __name__ == '__main__':
     unittest.main()

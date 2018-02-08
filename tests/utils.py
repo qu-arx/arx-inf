@@ -8,3 +8,11 @@ class AttrDict(dict):
     def __init__(self, *args, **kwargs):
         super(AttrDict, self).__init__(*args, **kwargs)
         self.__dict__ = self
+
+test_metadata = AttrDict(dict(
+    authors = ["Arthur Welt", "Foo B. Baz", "Homer J. Simpson"],
+    title = "Testing",
+    arxiv_primary_category = {'term': "CS.AI"},
+    arxiv_url = "http://arxiv.org/abs/2001.12345v1",
+    published_parsed = AttrDict(dict(tm_year = 2020)),
+))

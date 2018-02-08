@@ -42,13 +42,18 @@ circ_codes = {
     50: 0x32BF
 }
 
-def YearConvert(y: int) -> str:
+def YearConvert(y: int, to="tw") -> str:
     """
     Convert year from integer to the circled digit Unicode
     code point equivalent, if available (2010-2050).
     """
-    if 2009 < y < 2051:
-        y = chr(circ_codes[y-2000])
+    if to == "tw":
+        if 2009 < y < 2051:
+            y = chr(circ_codes[y-2000])
+        else:
+            y = str(y)
+    elif to == "log":
+        y = str(y)[-2:]
     else:
-        y = str(y)
+        raise ValueError(f"Format {to} not recognised.")
     return y
