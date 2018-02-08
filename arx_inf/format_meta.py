@@ -25,5 +25,5 @@ def FormatMeta(p) -> str:
     u = p.arxiv_url
     arx_id = u.split('/abs/')[1]
     y = YearConvert(p.published_parsed.tm_year)
-    f_meta = f"{auth} ({y}) {t} (arx⠶{arx_id}［{cat}］) {u}"
+    f_meta = f"{auth} ({y}) {t} (arX⠶{arx_id}［{cat}］) {u}"
     return f_meta

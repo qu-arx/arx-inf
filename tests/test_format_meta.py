@@ -1,6 +1,6 @@
-from context import arx_inf
+from .context import arx_inf
 from arx_inf import FormatAuth, FormatMeta
-from utils import AttrDict
+from .utils import AttrDict
 import unittest
 
 class AuthTestSuite(unittest.TestCase):
@@ -31,7 +31,7 @@ class MetaTestSuite(unittest.TestCase):
             published_parsed = AttrDict(dict(tm_year = 2020)),
         ))
         assert FormatMeta(test_metadata) == "Welt et al. (⑳) Testing " \
-        + "(arx⠶2001.12345v1［CS.AI］) http://arxiv.org/abs/2001.12345v1"
+        + "(arX⠶2001.12345v1［CS.AI］) http://arxiv.org/abs/2001.12345v1"
 
 if __name__ == '__main__':
     unittest.main()

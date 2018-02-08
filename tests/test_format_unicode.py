@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from context import arx_inf
-from arx_inf.format_unicode import circ_codes
+from .context import arx_inf
+from arx_inf.format_unicode import circ_codes, YearConvert
 
 import unittest
 
