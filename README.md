@@ -12,7 +12,7 @@ Obtaining human-readable, bot-tweetable representations of arXiv metadata from t
 - Non-interactive use (`tw` format):
 
   ```sh
-  python -c "from arx_inf.inf import QueryID; print(QueryID('1705.03239'))" | xclip -sel clip
+  python -c "from arx_inf.inf import QueryID; print(QueryID('1705.03239', to='tw'))" | xclip -sel clip
   ```
 
   copies `Papyan et al. (⑰) Convolutional Dictionary Learning via Local Processing (arX⠶1705.03239v1［cs.CV］) http://arxiv.org/abs/1705.03239v1` to the clipboard.
